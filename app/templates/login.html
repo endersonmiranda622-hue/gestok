@@ -1,0 +1,7 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>GESTOK</title><link rel="stylesheet" href="/static/css/app.css"></head><body><div class="auth"><form class="card" method="post" action="/login" novalidate>
+<div class="brand">GESTOK</div><div class="sub">Gestão inteligente de materiais e estoque</div>
+{% if error %}<div class="msg err" role="alert">{{ error }}</div>{% endif %}{% if info %}<div class="msg ok">{{ info }}</div>{% endif %}
+<input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+<label for="email">E-mail *</label><input id="email" name="email" type="email" autocomplete="username" required>
+<label for="password">Senha *</label><input id="password" name="password" type="password" autocomplete="current-password" required>
+<button type="submit">Entrar</button><a class="link" href="/forgot">Esqueci minha senha</a></form></div></body></html>

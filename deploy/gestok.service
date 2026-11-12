@@ -1,0 +1,13 @@
+# EXEMPLO NÃO TESTADO neste ambiente (sem systemd).
+[Unit]
+Description=GESTOK
+After=network.target
+[Service]
+User=gestok
+WorkingDirectory=/opt/gestok
+EnvironmentFile=/etc/gestok.env
+ExecStart=/opt/gestok/venv/bin/gunicorn -c deploy/gunicorn.conf.py wsgi:app
+Restart=on-failure
+NoNewPrivileges=true
+[Install]
+WantedBy=multi-user.target

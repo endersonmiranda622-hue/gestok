@@ -1,0 +1,20 @@
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,Segoe UI,Roboto,sans-serif;background:#f3f5f8;color:#1b2430}
+.auth{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:16px}
+.card{background:#fff;border-radius:12px;box-shadow:0 2px 12px #0001;padding:28px;width:100%;max-width:400px}
+.brand{font-weight:800;font-size:1.6rem;color:#0f2a43;letter-spacing:.5px}.sub{color:#5b6b7c;margin:2px 0 20px;font-size:.9rem}
+label{display:block;font-weight:600;font-size:.85rem;margin:12px 0 4px}
+input{width:100%;padding:10px 12px;border:1px solid #c5ced8;border-radius:8px;font-size:1rem}
+input:focus{outline:2px solid #2f80ed;border-color:#2f80ed}
+button{margin-top:18px;width:100%;padding:11px;border:0;border-radius:8px;background:#0f2a43;color:#fff;font-size:1rem;cursor:pointer}
+button:hover{background:#17406a}.msg{padding:10px 12px;border-radius:8px;margin-bottom:8px;font-size:.9rem}
+.err{background:#fdecea;color:#8a1f17}.ok{background:#e7f6ec;color:#17613a}.link{display:block;margin-top:14px;text-align:center;font-size:.9rem;color:#2f80ed}
+.shell{display:flex;min-height:100vh}.side{background:#0f2a43;color:#fff;padding:20px;width:220px}.main{flex:1;padding:24px}
+@media(max-width:700px){.shell{flex-direction:column}.side{width:100%}}
+.nav{display:block;color:#cfe0f1;padding:8px 0;text-decoration:none}.panel{background:#fff;padding:16px;border-radius:10px;margin:12px 0;max-width:420px}
+select{width:100%;padding:10px;border:1px solid #c5ced8;border-radius:8px}.tbl{width:100%;border-collapse:collapse;background:#fff;border-radius:10px;display:block;overflow-x:auto}
+.tbl th,.tbl td{padding:10px;text-align:left;border-bottom:1px solid #e6ebf0;white-space:nowrap}button.sm{width:auto;margin:0 6px 0 0;padding:6px 10px;font-size:.8rem}
+.bar{display:flex;gap:8px;align-items:center;margin:10px 0;flex-wrap:wrap}.bar input[type=search]{flex:1;min-width:200px}.bar select{width:auto}.bar button.sm{margin:0}
+.panel.wide{max-width:none}label input[type=checkbox]{width:auto;margin-right:6px}
+.cards{display:flex;gap:12px;flex-wrap:wrap;margin:12px 0}.kpi{background:#fff;border-radius:10px;padding:14px 18px;min-width:180px;box-shadow:0 1px 6px #0001}.kpi span{display:block;color:#5b6b7c;font-size:.8rem}.kpi b{font-size:1.4rem}
+.chart{overflow-x:auto}.svg{width:100%;max-width:760px;height:auto}.kpi small{display:block;color:#5b6b7c;font-size:.75rem;margin-top:2px}
+.side .brand{color:#fff}

@@ -1,0 +1,9 @@
+{% extends "layout.html" %}{% block title %}Usuários · GESTOK{% endblock %}
+{% block content %}<h1>Usuários</h1><div id="msg" class="msg" hidden role="status"></div>
+<form id="new" class="panel"><input type="hidden" id="csrf" value="{{ csrf_token() }}">
+<label for="n">Nome *</label><input id="n" required maxlength="120"><label for="e">E-mail *</label><input id="e" type="email" required>
+<label for="r">Função *</label><select id="r"><option value="colaborador">Colaborador</option><option value="gestor">Gestor</option>{% if g.user.role == 'admin' %}<option value="admin">Administrador</option>{% endif %}</select>
+<button type="submit">Convidar usuário</button></form>
+<table class="tbl"><thead><tr><th>Nome</th><th>E-mail</th><th>Função</th><th>Situação</th><th></th></tr></thead><tbody id="rows"></tbody></table>
+<p id="empty" hidden>Nenhum usuário encontrado.</p>{% endblock %}
+{% block scripts %}<script src="/static/js/users.js"></script>{% endblock %}

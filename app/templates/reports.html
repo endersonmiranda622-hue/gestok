@@ -1,0 +1,8 @@
+{% extends "layout.html" %}{% block title %}Relatórios · GESTOK{% endblock %}
+{% block content %}<h1>Relatórios</h1><div id="msg" class="msg" hidden role="status"></div>
+<div class="bar"><select id="rp" aria-label="Relatório"></select><label for="rf">De</label><input id="rf" type="date"><label for="rt">Até</label><input id="rt" type="date">
+<select id="cat" aria-label="Categoria"></select><select id="wh" aria-label="Depósito"></select><select id="ty" aria-label="Tipo de item"><option value="">Todos os tipos</option><option value="material">Material</option><option value="produto">Produto</option></select>
+<button class="sm" id="go">Gerar</button><button class="sm" id="xcsv">CSV</button><button class="sm" id="xxlsx">Excel</button><button class="sm" id="xpdf">PDF</button></div>
+<p id="tot"></p><table class="tbl"><thead id="th"></thead><tbody id="rows"></tbody></table><p id="empty" hidden>Nenhum registro para os filtros selecionados.</p>
+<div class="bar"><button class="sm" id="prev">Anterior</button><span id="pg"></span><button class="sm" id="next">Próxima</button></div>{% endblock %}
+{% block scripts %}<script src="/static/js/reports.js"></script>{% endblock %}

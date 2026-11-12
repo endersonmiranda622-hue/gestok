@@ -1,0 +1,3 @@
+-r requirements.txt
+# Servidor WSGI de produção. NÃO foi instalado nem testado neste ambiente (sem rede): fixe a versão após validar no seu.
+gunicorn

@@ -1,0 +1,6 @@
+{% extends "layout.html" %}{% block title %}Auditoria · GESTOK{% endblock %}
+{% block content %}<h1>Histórico de auditoria</h1><div id="msg" class="msg" hidden role="status"></div>
+<div class="bar"><input id="ac" placeholder="Ação (ex.: movement.* ou login.failed)" aria-label="Ação"><input id="af" type="date" aria-label="De"><input id="at" type="date" aria-label="Até"><button class="sm" id="go">Filtrar</button></div>
+<table class="tbl"><thead><tr><th>Data/hora</th><th>Usuário</th><th>Ação</th><th>Objeto</th><th>Detalhes</th></tr></thead><tbody id="rows"></tbody></table><p id="empty" hidden>Nenhum registro encontrado.</p>
+<div class="bar"><button class="sm" id="prev">Anterior</button><span id="pg"></span><button class="sm" id="next">Próxima</button></div>{% endblock %}
+{% block scripts %}<script src="/static/js/audit.js"></script>{% endblock %}

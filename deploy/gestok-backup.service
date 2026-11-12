@@ -1,0 +1,7 @@
+# EXEMPLO NÃO TESTADO neste ambiente. Agendamento = infraestrutura sua; o comando "manage.py backup" em si é testado.
+[Service]
+Type=oneshot
+User=gestok
+WorkingDirectory=/opt/gestok
+EnvironmentFile=/etc/gestok.env
+ExecStart=/opt/gestok/venv/bin/python manage.py backup --dest /var/backups/gestok --keep 14

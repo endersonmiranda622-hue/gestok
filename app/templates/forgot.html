@@ -1,0 +1,6 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>GESTOK</title><link rel="stylesheet" href="/static/css/app.css"></head><body><div class="auth"><form class="card" method="post" action="/forgot">
+<div class="brand">GESTOK</div><div class="sub">Redefinição de senha</div>
+{% if done %}<div class="msg ok">Se o e-mail estiver cadastrado, a redefinição foi solicitada. Procure o administrador da sua empresa caso não receba o link.</div>{% endif %}
+<input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+<label for="email">E-mail *</label><input id="email" name="email" type="email" required>
+<button type="submit">Solicitar redefinição</button><a class="link" href="/login">Voltar ao login</a></form></div></body></html>

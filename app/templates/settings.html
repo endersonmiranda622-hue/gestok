@@ -1,0 +1,10 @@
+{% extends "layout.html" %}{% block title %}Configurações · GESTOK{% endblock %}
+{% block content %}<h1>Configurações</h1><div id="msg" class="msg" hidden role="status"></div>
+<form id="fc" class="panel"><h2>Dados da empresa</h2><label for="cn">Nome *</label><input id="cn" required maxlength="120"><label for="cd">Documento (CNPJ)</label><input id="cd" maxlength="30">
+<label for="ctz">Fuso horário *</label><input id="ctz" list="tzs" required><datalist id="tzs"><option value="America/Belem"><option value="America/Sao_Paulo"><option value="America/Manaus"><option value="America/Fortaleza"><option value="America/Recife"><option value="America/Cuiaba"><option value="America/Rio_Branco"><option value="America/Noronha"></datalist>
+<small>O fuso define o "dia" usado em estoque parado, painel e relatórios.</small><button type="submit">Salvar empresa</button></form>
+<form id="fs" class="panel"><h2>Regras de estoque</h2><label for="sd">Dias para considerar estoque parado (padrão 60)</label><input id="sd" type="number" min="1" max="3650" required>
+<label for="ed">Antecedência do alerta de validade (dias)</label><input id="ed" type="number" min="0" max="365" required><label for="ps">Itens por página (10 a 100)</label><input id="ps" type="number" min="10" max="100" required>
+<label><input type="checkbox" id="neg"> Permitir estoque negativo (cada ocorrência fica auditada)</label><button type="submit">Salvar regras</button></form>
+<div class="panel wide" id="pm" hidden><h2>Permissões por função</h2><p>O administrador sempre tem todas as permissões. Alterações valem na próxima ação de cada usuário.</p><div id="pmx"></div></div>{% endblock %}
+{% block scripts %}<script src="/static/js/settings.js" data-admin="{{ 1 if g.user.role == 'admin' else 0 }}"></script>{% endblock %}

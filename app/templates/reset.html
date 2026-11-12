@@ -1,0 +1,6 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>GESTOK</title><link rel="stylesheet" href="/static/css/app.css"></head><body><div class="auth"><div class="card"><div class="brand">GESTOK</div><div class="sub">Nova senha</div>
+{% if invalid %}<div class="msg err">Link inválido ou expirado.</div><a class="link" href="/forgot">Solicitar novo link</a>
+{% else %}{% if error %}<div class="msg err" role="alert">{{ error }}</div>{% endif %}
+<form method="post"><input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+<label for="password">Nova senha * (mín. 10, letras e números)</label><input id="password" name="password" type="password" autocomplete="new-password" required>
+<button type="submit">Salvar nova senha</button></form>{% endif %}</div></div></body></html>

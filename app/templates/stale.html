@@ -1,0 +1,10 @@
+{% extends "layout.html" %}{% block title %}Estoque parado · GESTOK{% endblock %}
+{% block content %}<h1>Estoque parado</h1><div id="msg" class="msg" hidden role="status"></div>
+<div class="cards"><div class="kpi"><span>Itens/depósitos parados</span><b id="kc">–</b></div><div class="kpi"><span>Capital parado</span><b id="kv">–</b></div><div class="kpi"><span>Regra</span><b id="kd">–</b></div></div>
+<div class="bar"><select id="cat" aria-label="Categoria"></select><select id="wh" aria-label="Depósito"></select><select id="ty" aria-label="Tipo"><option value="">Todos os tipos</option><option value="material">Material</option><option value="produto">Produto</option></select>
+<select id="so" aria-label="Ordenar"><option value="days">Mais tempo parado</option><option value="value">Maior valor</option><option value="name">Nome</option></select></div>
+<table class="tbl"><thead><tr><th>Código</th><th>Item</th><th>Categoria</th><th>Depósito</th><th>Qtd parada</th><th>Custo unit.</th><th>Valor parado</th><th>Última mov.</th><th>Dias</th></tr></thead><tbody id="rows"></tbody></table>
+<p id="empty" hidden>Nenhum item parado. Itens só entram aqui com saldo positivo e sem movimentação no período configurado.</p>
+<div class="bar"><button class="sm" id="prev">Anterior</button><span id="pg"></span><button class="sm" id="next">Próxima</button></div>
+<h2>Sem histórico de movimentação</h2><p id="nh">–</p>{% endblock %}
+{% block scripts %}<script src="/static/js/stale.js"></script>{% endblock %}

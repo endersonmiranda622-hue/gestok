@@ -1,0 +1,16 @@
+{% extends "layout.html" %}{% block title %}Materiais · GESTOK{% endblock %}
+{% block content %}<h1>Materiais e produtos</h1><div id="msg" class="msg" hidden role="status"></div>
+<div class="bar"><input id="q" type="search" placeholder="Buscar por código, código de barras, nome ou categoria" aria-label="Buscar">
+<select id="act" aria-label="Situação"><option value="1">Ativos</option><option value="0">Inativos</option><option value="all">Todos</option></select></div>
+<table class="tbl"><thead><tr><th>Código</th><th>Nome</th><th>Tipo</th><th>Categoria</th><th>Saldo</th><th>Mínimo</th><th>Custo</th><th></th></tr></thead><tbody id="rows"></tbody></table>
+<p id="empty" hidden>Nenhum item encontrado. {% if can('items.edit') %}Cadastre o primeiro no formulário abaixo (cadastre antes uma categoria em Cadastros, se quiser).{% endif %}</p>
+<div class="bar"><button class="sm" id="prev">Anterior</button><span id="pg"></span><button class="sm" id="next">Próxima</button></div>
+{% if can('items.edit') %}<form id="f" class="panel"><h2 id="ft">Novo item</h2>
+<label for="code">Código *</label><input id="code" required maxlength="40"><label for="name">Nome *</label><input id="name" required maxlength="150">
+<label for="barcode">Código de barras</label><input id="barcode" maxlength="64"><label for="type">Tipo *</label><select id="type"><option value="material">Material de almoxarifado</option><option value="produto">Produto para venda</option></select>
+<label for="cat">Categoria</label><select id="cat"></select><label for="unit">Unidade *</label><select id="unit"></select><label for="wh">Depósito padrão</label><select id="wh"></select>
+<label for="min">Estoque mínimo</label><input id="min" inputmode="decimal" value="0"><label for="cost">Custo unitário (R$)</label><input id="cost" inputmode="decimal" value="0">
+<label for="price">Preço de venda (R$)</label><input id="price" inputmode="decimal"><label for="desc">Descrição</label><input id="desc" maxlength="1000">
+<label><input type="checkbox" id="lot"> Controla lote</label><label><input type="checkbox" id="exp"> Controla validade</label>
+<button type="submit" id="save">Salvar item</button><button type="button" id="cancel" class="sm" hidden>Cancelar edição</button></form>{% endif %}{% endblock %}
+{% block scripts %}<script src="/static/js/items.js"></script>{% endblock %}

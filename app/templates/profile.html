@@ -1,0 +1,6 @@
+{% extends "layout.html" %}{% block title %}Meu perfil · GESTOK{% endblock %}
+{% block content %}<h1>Meu perfil</h1><div id="msg" class="msg" hidden role="status"></div>
+<form id="fp" class="panel"><h2>Dados pessoais</h2><p id="info"></p><label for="pn">Nome *</label><input id="pn" required maxlength="120"><button type="submit">Salvar nome</button></form>
+<form id="fw" class="panel"><h2>Alterar senha</h2><label for="cur">Senha atual *</label><input id="cur" type="password" autocomplete="current-password" required>
+<label for="nw">Nova senha * (mín. 10, letras e números)</label><input id="nw" type="password" autocomplete="new-password" required><button type="submit">Alterar senha</button><small>Suas outras sessões serão encerradas.</small></form>{% endblock %}
+{% block scripts %}<script src="/static/js/profile.js"></script>{% endblock %}

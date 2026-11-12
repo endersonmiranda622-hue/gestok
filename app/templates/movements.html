@@ -1,0 +1,17 @@
+{% extends "layout.html" %}{% block title %}Movimentações · GESTOK{% endblock %}
+{% block content %}<h1>Movimentações</h1><div id="msg" class="msg" hidden role="status"></div>
+{% if can('movements.create') %}<form id="f" class="panel"><h2>Nova movimentação</h2>
+<label for="kind">Tipo *</label><select id="kind"><option value="entrada">Entrada</option><option value="saida">Saída</option><option value="transferencia">Transferência</option>
+{% if can('adjustments.approve') %}<option value="ajuste">Ajuste</option>{% endif %}</select>
+<label for="iq">Buscar item</label><input id="iq" type="search" placeholder="código ou nome"><label for="item">Item *</label><select id="item" required></select>
+<label for="wh" id="whl">Depósito *</label><select id="wh" required></select><div id="dst" hidden><label for="wh2">Depósito de destino *</label><select id="wh2"></select></div>
+<label for="qty">Quantidade *</label><input id="qty" inputmode="decimal" required>
+<div id="ent"><label for="cost">Custo unitário (R$)</label><input id="cost" inputmode="decimal"></div>
+<div id="adj" hidden><label for="dir">Direção</label><select id="dir"><option value="aumentar">Aumentar</option><option value="diminuir">Diminuir</option></select></div>
+<label for="lot">Lote (se o item controlar)</label><input id="lot" maxlength="40"><label for="exp">Validade (entrada de lote com validade)</label><input id="exp" type="date">
+<label for="reason">Motivo / observação</label><input id="reason" maxlength="300"><button type="submit" id="save">Registrar</button></form>{% endif %}
+<div class="bar"><select id="fk" aria-label="Tipo de movimentação"><option value="">Todos os tipos</option><option>entrada</option><option>saida</option><option>transferencia</option><option>ajuste</option><option>estorno</option></select>
+<input id="ff" type="date" aria-label="De"><input id="ft" type="date" aria-label="Até"></div>
+<table class="tbl"><thead><tr><th>Data</th><th>Tipo</th><th>Item(ns)</th><th>Qtd</th><th>Depósito</th><th>Usuário</th><th>Motivo</th><th></th></tr></thead><tbody id="rows"></tbody></table>
+<p id="empty" hidden>Nenhuma movimentação registrada ainda.</p><div class="bar"><button class="sm" id="prev">Anterior</button><span id="pg"></span><button class="sm" id="next">Próxima</button></div>{% endblock %}
+{% block scripts %}<script src="/static/js/movements.js" data-approve="{{ 1 if can('adjustments.approve') else 0 }}"></script>{% endblock %}

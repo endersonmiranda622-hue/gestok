@@ -1,0 +1,10 @@
+{% extends "layout.html" %}{% block title %}Painel · GESTOK{% endblock %}
+{% block content %}<h1>Painel de controle</h1><div id="msg" class="msg" hidden role="status"></div>
+<div class="bar"><label for="df">De</label><input id="df" type="date"><label for="dt">Até</label><input id="dt" type="date"><button class="sm" id="ap">Atualizar</button></div>
+<div id="start" class="panel wide" hidden><h2>Comece por aqui</h2><p>Ainda não há itens cadastrados. 1) Em <a href="/cadastros">Cadastros</a>, crie categorias e depósitos. 2) Em <a href="/materiais">Materiais</a>, cadastre os itens. 3) Em <a href="/movimentacoes">Movimentações</a>, registre a primeira entrada.</p></div>
+<div class="cards" id="cards"></div><div class="cards" id="pcards"></div>
+<div class="panel wide"><h2>Evolução das movimentações <small id="gran"></small></h2><div id="c1" class="chart"></div></div>
+<div class="panel wide"><h2>Valor em estoque por categoria</h2><div id="c2" class="chart"></div></div>
+<div class="panel wide"><h2>Validade próxima</h2><div id="exp"></div></div>
+<details class="panel wide"><summary>Como os números são calculados</summary><ul id="defs"></ul></details>{% endblock %}
+{% block scripts %}<script src="/static/js/dashboard.js"></script>{% endblock %}

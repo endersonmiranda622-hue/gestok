@@ -1,0 +1,4 @@
+{% extends "layout.html" %}{% block title %}Cadastros · GESTOK{% endblock %}
+{% block content %}<h1>Cadastros</h1><div id="msg" class="msg" hidden role="status"></div>
+<div id="sections" data-cat="{{ 1 if can('categories.manage') else 0 }}" data-wh="{{ 1 if can('warehouses.manage') else 0 }}"></div>{% endblock %}
+{% block scripts %}<script src="/static/js/catalogs.js"></script>{% endblock %}
