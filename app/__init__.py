@@ -3,14 +3,6 @@ from flask import Flask, redirect
 def create_app():
     app = Flask(__name__)
     app.config['SECRET_KEY'] = 'gestok-super-secret-123'
-
-    @app.route('/')
-def home():
-    from flask import session
-    if "uid" not in session:
-        return redirect('/login')
-    return redirect('/dashboard')
-    
         
     @app.route('/health')
     def health():
